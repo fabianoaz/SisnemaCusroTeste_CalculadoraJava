@@ -34,5 +34,11 @@ class CalculadoraTeste {
 		assertEquals(-1, calc.subtrai(-3, -2));
 	}
 	
+	@Test
+	@DisplayName("Divisão Positivos")
+	void testDivideNumerosPositivos_ResultadoPositivo() {
+		assertEquals(5, calc.divide(10, 2));
+	}
+	
 
 }
