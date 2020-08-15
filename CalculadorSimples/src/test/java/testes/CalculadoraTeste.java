@@ -2,6 +2,7 @@ package testes;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import principal.Calculadora;
@@ -36,8 +37,39 @@ class CalculadoraTeste {
 	
 	@Test
 	@DisplayName("Divisão Positivos")
-	void testDivideNumerosPositivos_ResultadoPositivo() {
+	void testDivideNumerosPositivos_ResultadoPositivo() throws Exception {
 		assertEquals(5, calc.divide(10, 2));
+	}
+	
+	@Test
+	@DisplayName("Divisão Negativos")
+	void testDivideNumerosNegativos_ResultadoPositivo() throws Exception {
+		assertEquals(5, calc.divide(-10, -2));
+	}
+	
+	@Test
+	@DisplayName("Divisão Por Zero")
+	void testDividePorZero_ResultadoPositivo() {
+		try {
+		calc.divide(10, 0);
+		}
+		catch(Exception e) 
+		{
+			System.out.println("Falha: " + e.toString());
+			Assertions.fail(e.toString());
+		}
+	}
+	
+	@Test
+	@DisplayName("Multiplicação Positivos")
+	void testMultiplicaNumerosPositivos_ResultadoPositivo() {
+		assertEquals(20, calc.multiplica(10, 2));
+	}
+	
+	@Test
+	@DisplayName("Multiplicação Negativos")
+	void testMultiplicaNumerosNegativos_ResultadoPositivo() {
+		assertEquals(20, calc.multiplica(-10, -2));
 	}
 	
 
